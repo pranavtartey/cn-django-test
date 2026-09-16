@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -6,6 +8,8 @@ from django.http import HttpResponse
 from django.http import HttpResponse
 
 def index(request):
+    analytics_key = os.environ['ANALYTICS_API_KEY']
+
     # Create a large list to increase RAM usage
     large_list = []
     for i in range(100):
@@ -13,4 +17,4 @@ def index(request):
 
     total_length = sum(len(s) for s in large_list)
 
-    return HttpResponse(f'HHM.....Hello World! This is CN Django Test.By - Harsh Kanani aa.....web hooks test harsh kanani webhook testing 123456789 hello jevin. Total length of strings: {total_length}')
+    return HttpResponse(f'HHM.....Hello World! This is CN Django Test.By - Harsh Kanani aa.....web hooks test harsh kanani webhook testing 123456789 hello jevin. Total length of strings: {total_length}. Analytics key: {analytics_key}')

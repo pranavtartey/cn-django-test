@@ -18,3 +18,7 @@ def index(request):
     total_length = sum(len(s) for s in large_list)
 
     return HttpResponse(f'HHM.....Hello World! This is CN Django Test.By - Harsh Kanani aa.....web hooks test harsh kanani webhook testing 123456789 hello jevin. Total length of strings: {total_length}. Analytics key: {analytics_key}')
+
+def stats(request):
+    api_key = os.environ['STATS_API_KEY']
+    return HttpResponse(f'Usage stats dashboard. Key: {api_key}')

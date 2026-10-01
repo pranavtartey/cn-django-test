@@ -28,4 +28,3 @@ vine==5.0.0
 wcwidth==0.2.6
 psycopg2-binary==2.9.9
 dj-database-url
-this-package-definitely-does-not-exist-xyz123==1.0.0

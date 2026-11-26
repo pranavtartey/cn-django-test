@@ -1,0 +1,9 @@
+FROM python:3.12-slim-bookworm
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "for i in $(seq 1 15); do curl -s -o /tmp/body.txt -w 'PROBE-PUBLIC-HOST %{http_code}\\n' -H 'Host: cn-django-test-master-b71b634.kuberns.cloud' http://kuberns-app-codebase:8000/ || echo 'PROBE failed'; head -c 200 /tmp/body.txt; echo; sleep 3; done"]
